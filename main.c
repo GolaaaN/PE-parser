@@ -1,6 +1,6 @@
 #include "parser.h"
 
-int main()
+int main(int argc, char **atgv)
 {
     FILE fp;
     parser(&fp);
