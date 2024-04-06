@@ -1,11 +1,7 @@
 #include "parser.h"
 
-int main()
+int parser(FILE *filename)
 {
-    printf("Hellp World!");
+    printf("Hello World");
     return 0;
-}
-
-int parser(char *filename)
-{
 }

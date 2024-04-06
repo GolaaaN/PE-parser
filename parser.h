@@ -1,3 +1,4 @@
 #include <stdio.h>
+#include <winnt.h>
 
-int parser(char *filename);
+int parser(FILE *filename);
