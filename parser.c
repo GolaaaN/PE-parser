@@ -1,16 +1,33 @@
 #include "parser.h"
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
+typedef unsigned long long QWORD;
+typedef __int64 LONGLONG;
+typedef unsigned __int64 ULONGLONG;
 
-int parser(FILE *filename)
+int parser(char *filename)
 {
     FILE *pe_fd = fopen(filename, "r");
-
-    printf("Hello World");
+    if (pe_fd == NULL)
+        error(0);
+    if (!is_pe_file(pe_fd))
+    {
+        error(1);
+    }
     return 0;
 }
 
-BOOLEAN pe_validation(FILE *fp)
+int is_pe_file(FILE *fp)
 {
-    // fopen()
+    int i = 0;
+    WORD PE_e_magic = 0x5A4D;
+    WORD MZ;
+    fread(&MZ, 2, 1, fp);
+    printf("%x", MZ);
+    if (MZ == PE_e_magic)
+        return 1;
+    return 0;
 }
 
 void error(int ERR)
